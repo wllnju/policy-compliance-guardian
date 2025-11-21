@@ -103,7 +103,7 @@ cd policy-compliance-guardian
 policy-compliance-guardian/
 ├── src/
 │   ├── agents/
-│   │   ├── orchestrator_agent.py
+│   │   ├── OPTIONAL (orchestrator_agent.py)
 │   │   ├── monitor_agent.py
 │   │   ├── comparison_agent.py
 │   │   ├── notification_agent.py
@@ -111,8 +111,8 @@ policy-compliance-guardian/
 │   ├── services/
 │   │   ├── policy_fetcher.py      # HTTP + scraping
 │   │   ├── docs_fetcher.py        # Google Docs API
-│   │   ├── email_sender.py        # Gmail or SMTP
-│   │   └── storage.py             # Firestore / SQLite wrapper
+│   │   ├── X NOT NEEDED (email_sender.py        # Gmail or SMTP)
+│   │   └── X NOT NEEDED (storage.py             # Firestore / SQLite wrapper)
 │   └── main_workflow.py           # end-to-end check
 │
 ├── docs/
