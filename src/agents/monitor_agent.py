@@ -254,7 +254,7 @@ async def monitor(policy_path: str = DEFAULT_POLICY_PATH) -> str:
     # File path
     text_snapshot_file = user_dir / f"monitored_file_summary.{timestamp}.txt"
 
-    # Write file
+    # Write fileC
     text_snapshot_file.write_text(final_answer, encoding="utf-8")
 
 

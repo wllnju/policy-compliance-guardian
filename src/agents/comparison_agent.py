@@ -1,4 +1,4 @@
-# src/agents/comparison_agent.py
+# src/agents/comparison_agent_wo_vertexai.py
 
 import os
 import time
@@ -15,7 +15,8 @@ from google.adk.tools.google_search_tool import google_search
 from google.adk.runners import Runner
 from google.adk.sessions.in_memory_session_service import InMemorySessionService
 
-from src.tools.notifier_tool import send_email
+#from src.tools.notifier_tool import send_email
+from src.tools.notifier_tool_auth import send_email
 
 # Gemini base SDK types for constructing messages
 from google.genai import types
@@ -39,8 +40,10 @@ def notification_agent(summary: str):
     print(">>> Notification Agent Triggered!")
     print(summary)
 
+    print(">>> Send notification email.")
     send_email(
-        to_email="hrf.devops@gmail.com",
+        #to_email="hrf.devops@gmail.com",
+        to_email="lwangucr@gmail.com",
         subject="Policy Compliance Guardian Notification",
         body="""Greetings,
         \nYour latest policy update has been processed successfully. Please check the updated documents from Google Drive for details.
@@ -178,7 +181,9 @@ Respond in JSON format:
             return {"changed": True, "summary": "No final response from comparison agent."}
 
         # Parse JSON
+        #print("final_text Debug: ", final_text[:50])
         parsed = self._parse_response(final_text)
+        #print("Debug: ", parsed[:100])
 
         # Trigger notification
         if parsed.get("changed"):

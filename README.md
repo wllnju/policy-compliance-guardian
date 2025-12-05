@@ -274,6 +274,18 @@ Your external scheduler can then trigger that wrapper script on whatever cadence
 
 ---
 
+## if the tools (docs_fetcher and notifier_tool) don't work properly because they used googleapiclient/httplib2 which may be blocked by some network. We can use AuthorizedSession replaced where the tools code showed as following:
+
+- `docs_fetcher_auth.py` use Authorized Session instead of googleapiclient/httplib2 for GOOGLE DRIVE access
+- `notifier_tool_auth.py` use SMTP for email sending instead of Gmail REST API, use Authorized Session instead of googleapiclient/httplib2 for GOOGLE DRIVE access
+  1. in your `.env`(where you already have things like `GOOGLE_API_KEY`), please remember put SMTP creds 
+  ```python
+    SMTP_USER=lwangucr@gmail.com
+    SMTP_APP_PASSWORD=your_16_char_app_password_here
+    SMTP_FROM=lwangucr@gmail.com
+    ```
+  2. Drive sync is optional and controlled via ENABLE_DRIVE_SYNC (set `ENABLE_DRIVE_SYNC` to be `TRUE` or `FALSE` in the `.env`)
+
 ## 🔐 Handling Credentials Safely
 
 - **Never** commit `credentials.json` and `service_account.json`, token files, or `.env` to version control.

@@ -11,8 +11,8 @@ from src.agents.authorizer_agent import AuthorizerAgent
 from src.agents.monitor_agent import MonitorAgent, monitor
 from src.agents.comparison_agent import ComparisonAgent
 
-from src.tools.docs_fetcher import fetch_temp_docs
-
+#from src.tools.docs_fetcher import fetch_temp_docs
+from src.tools.docs_fetcher_auth import fetch_temp_docs
 # Logging setup
 logging.basicConfig(format="[%(levelname)s]: %(message)s", level=logging.INFO)
 logger = logging.getLogger(__name__)
